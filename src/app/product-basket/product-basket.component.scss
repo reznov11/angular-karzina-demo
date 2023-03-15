@@ -1,0 +1,41 @@
+// product-basket.component.scss
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background-color: #f7f7f7;
+    text-align: left;
+    font-weight: bold;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  button {
+    border: none;
+    background-color: #f7f7f7;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+
+    &:hover {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}

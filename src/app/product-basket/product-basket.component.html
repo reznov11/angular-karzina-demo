@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <h3>Your Cart</h3>
+    </div>
+    <div class="card" class="col-3" *ngFor="let product of myProducts">
+      <img class="card-img-top" src="{{ product.imageUrl }}" alt="Card image" />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <a type="button" class="btn btn-primary" (click)="addProductToCart(product)">Add to cart</a>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of cartProducts | async">
+            <td>{{ product.name }}</td>
+            <td>{{ product.price | currency }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.total | currency }}</td>
+            <td>
+              <button class="btn btn-sm btn-success" (click)="increaseQuantity(product)">+</button>
+              <button class="btn btn-sm btn-warning" (click)="decreaseQuantity(product)">-</button>
+              <button class="btn btn-sm btn-danger" (click)="removeProduct(product)">X</button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total: {{ total | async | currency }}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
